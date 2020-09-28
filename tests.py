@@ -54,6 +54,15 @@ class TestCases(unittest.TestCase):
         self.assertEqual('zen_of_python', pascal_to_snake_case("ZenOfPython"))
         self.assertEqual('zen_of_some_really_long_pascal_case', pascal_to_snake_case("ZenOfSomeReallyLongPascalCase"))
 
+    def test_css_camelcase_case(self):
+        from cases import css_camelcase_case
+
+        self.assertEqual('.zenOfPython', css_camelcase_case("zen of python"))
+        self.assertEqual('.zenOfPython', css_camelcase_case("zen-of-python"))
+        self.assertEqual('.zenOfPython', css_camelcase_case("zen.of.python"))
+        self.assertEqual('.zenOfPython', css_camelcase_case("zen.OF-python"))
+        self.assertEqual('.zenOfPython', css_camelcase_case("zen OF pYthon"))
+
 
 if __name__ == '__main__':
     unittest.main()

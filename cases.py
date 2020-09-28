@@ -87,7 +87,7 @@ def pascal_case(string):
     >>> pascal_case("zen.of.python")
     >>> pascal_case("zen-of{python")
 
-    >>> ZenOfPython
+    >>> ZenOfPython # for all above use cases
     """
 
     is_string(string)
@@ -156,3 +156,29 @@ def kebab_case(string):
 
     return ''.join(['-' + i.lower() if i.isupper()
                     else i for i in string]).lstrip('-')
+
+
+def css_camelcase_case(string):
+    """
+    Return a string to .cssCase -
+
+    :param string:
+
+    :return string:
+
+    Examples::
+    >>> css_camecase_case("Zen of Python")
+    >>> css_camecase_case("Zen-of-Python")
+    >>> css_camecase_case("Zen.of.Python")
+    >>> css_camecase_case("zen OF pYthon")
+    >>> css_camecase_case("ZEN of_PYTHON")
+    >>> css_camecase_case("zen.OF-python")
+
+    >>> .zenOfPython # for all above use cases
+    """
+
+    is_string(string)
+    dot = "."
+
+    return dot + camel_case(string)
+
